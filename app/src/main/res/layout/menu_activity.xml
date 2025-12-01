@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="432dp"
+    android:layout_height="864dp"
+    android:background="@color/menu_bg"
+    tools:context=".MenuActivity">
+
+    <LinearLayout
+        android:id="@+id/menuHeader"
+        android:layout_width="432dp"
+        android:layout_height="136dp"
+        android:background="@color/menu_header"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/menuText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bodoni_72_book"
+            android:text="RU Donuts"
+            android:textColor="@color/white"
+            android:textSize="64dp" />
+
+        <ImageView
+            android:id="@+id/menuIcon"
+            android:layout_width="93dp"
+            android:layout_height="93dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:cropToPadding="false"
+            app:srcCompat="@drawable/ru_donuts_logo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/donutsButton"
+        android:layout_width="432dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuHeader">
+
+        <ImageView
+            android:id="@+id/donutsImg"
+            android:layout_width="196dp"
+            android:layout_height="147dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1"
+            android:cropToPadding="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/menu_donuts_logo" />
+
+        <TextView
+            android:id="@+id/donutsTitle"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/bodoni_72_book"
+            android:text="DONUTS"
+            android:textAlignment="center"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/coffeeButton"
+        android:layout_width="432dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/donutsButton"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageView
+            android:id="@+id/coffeeImg"
+            android:layout_width="196dp"
+            android:layout_height="147dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/menu_coffee_logo" />
+
+        <TextView
+            android:id="@+id/coffeeTitle"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/bodoni_72_book"
+            android:text="COFFEE"
+            android:textAlignment="center"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sandwichesButton"
+        android:layout_width="432dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeButton"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageView
+            android:id="@+id/sandwichesImg"
+            android:layout_width="231dp"
+            android:layout_height="147dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/menu_sandwich_logo" />
+
+        <TextView
+            android:id="@+id/sandwichesTitle"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/bodoni_72_book"
+            android:text="SAND-\nWICHES"
+            android:textAlignment="center"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ordersButton"
+        android:layout_width="432dp"
+        android:layout_height="168dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/sandwichesButton"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageView
+            android:id="@+id/ordersImg"
+            android:layout_width="154dp"
+            android:layout_height="147dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/menu_orders_logo" />
+
+        <TextView
+            android:id="@+id/ordersTitle"
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/bodoni_72_book"
+            android:text="ORDERS"
+            android:textAlignment="center"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
