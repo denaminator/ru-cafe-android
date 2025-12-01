@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_orders_wrapper"
+        android:drawable="@drawable/menu_orders_logo"
+        android:width="222dp"
+        android:height="147dp"
+        android:bottom="7dp"
+        android:left="6dp"
+        android:right="12dp"
+        android:top="7dp"
+        />
+</layer-list>
