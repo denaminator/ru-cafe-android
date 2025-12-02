@@ -5,11 +5,13 @@
     android:layout_width="432dp"
     android:layout_height="864dp"
     android:background="@color/menu_bg"
+    android:minWidth="432dp"
+    android:minHeight="864dp"
     tools:context=".MenuActivity">
 
     <LinearLayout
         android:id="@+id/menuHeader"
-        android:layout_width="432dp"
+        android:layout_width="match_parent"
         android:layout_height="136dp"
         android:background="@color/menu_header"
         android:gravity="center"
@@ -23,7 +25,9 @@
             android:id="@+id/menuText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
             android:fontFamily="@font/bodoni_72_book"
+            android:includeFontPadding="true"
             android:text="@string/menu_header"
             android:textColor="@color/white"
             android:textSize="64sp" />
@@ -34,13 +38,14 @@
             android:layout_height="93dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="30dp"
             android:cropToPadding="false"
             app:srcCompat="@drawable/ru_donuts_logo" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/donutsLayout"
-        android:layout_width="432dp"
+        android:layout_width="match_parent"
         android:layout_height="168dp"
         android:layout_marginTop="8dp"
         android:background="@color/white"
@@ -67,7 +72,7 @@
 
     <LinearLayout
         android:id="@+id/coffeeLayout"
-        android:layout_width="432dp"
+        android:layout_width="match_parent"
         android:layout_height="168dp"
         android:layout_marginTop="8dp"
         android:background="@color/white"
@@ -93,7 +98,7 @@
 
     <LinearLayout
         android:id="@+id/sandwichesLayout"
-        android:layout_width="432dp"
+        android:layout_width="match_parent"
         android:layout_height="168dp"
         android:layout_marginTop="8dp"
         android:background="@color/white"
@@ -119,7 +124,7 @@
 
     <LinearLayout
         android:id="@+id/ordersLayout"
-        android:layout_width="432dp"
+        android:layout_width="match_parent"
         android:layout_height="168dp"
         android:layout_marginTop="8dp"
         android:background="@color/white"
