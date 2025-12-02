@@ -190,7 +190,7 @@
                 android:fontFamily="@font/geneva"
                 android:paddingStart="8dp"
                 android:paddingTop="4dp"
-                android:text="TextView"
+                android:text="@string/order_breakdown"
                 android:textAlignment="viewStart" />
         </FrameLayout>
 
