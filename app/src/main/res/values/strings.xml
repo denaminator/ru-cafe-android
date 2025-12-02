@@ -5,4 +5,19 @@
     <string name="coffee_title">COFFEE</string>
     <string name="sandwiches_title">SAND-\nWICHES</string>
     <string name="orders_title">ORDERS</string>
+
+    <string name="quantity">Quantity:</string>
+    <string name="total">Total:</string>
+    <string name="default_sum">$0.00</string>
+    <string name="add_to_order">Add to Order</string>
+    <string name="order_breakdown">Order</string>
+
+    <string name="coffee_header">Coffee</string>
+    <string name="coffee_size">Size:</string>
+    <string name="coffee_addins">Add-Ins:</string>
+    <string name="two_milk">2% Milk</string>
+    <string name="whipped_cream">Whipped Cream</string>
+    <string name="vanilla">Vanilla</string>
+    <string name="caramel">Caramel</string>
+    <string name="mocha">Mocha</string>
 </resources>
