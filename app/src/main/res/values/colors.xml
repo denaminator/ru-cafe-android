@@ -8,4 +8,5 @@
     <color name="coffee_header">#571D22</color>
     <color name="order_button">#DC3E3E</color>
     <color name="sandwiches_header">#2E6E39</color>
+    <color name="donuts_header"> #18919E</color>
 </resources>

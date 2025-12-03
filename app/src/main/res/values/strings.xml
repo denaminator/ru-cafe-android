@@ -29,4 +29,9 @@
     <string name="tomato">Tomato</string>
     <string name="onion">Onion</string>
     <string name="cheese">Cheese</string>
+
+    <string name="donuts_header">Donuts</string>
+    <string name="donut_type">Type:</string>
+    <string name="donut_flavors">Flavors:</string>
+
 </resources>
