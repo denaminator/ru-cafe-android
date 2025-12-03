@@ -3,7 +3,7 @@
     <string name="menu_header">RU Donuts</string>
     <string name="donuts_title">DONUTS</string>
     <string name="coffee_title">COFFEE</string>
-    <string name="sandwiches_title">SAND-\nWICHES</string>
+    <string name="sandwiches_title">SANDWICHES</string>
     <string name="orders_title">ORDERS</string>
 
     <string name="quantity">Quantity:</string>
@@ -20,4 +20,13 @@
     <string name="vanilla">Vanilla</string>
     <string name="caramel">Caramel</string>
     <string name="mocha">Mocha</string>
+
+    <string name="sandwiches_header">Sandwiches</string>
+    <string name="sandwiches_protein">Protein:</string>
+    <string name="sandwiches_bread">Bread:</string>
+    <string name="sandwiches_addons">Add-Ons:</string>
+    <string name="lettuce">Lettuce</string>
+    <string name="tomato">Tomato</string>
+    <string name="onion">Onion</string>
+    <string name="cheese">Cheese</string>
 </resources>
