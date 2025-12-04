@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 /**
  * Activity controller for Sandwiches screen
- * @author Namulun, modified Nov. 30, 2025
+ * @author Jay, modified Nov. 30, 2025
  */
 public class SandwichesActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -113,12 +113,14 @@ public class SandwichesActivity extends AppCompatActivity implements AdapterView
             this.sandwich = new Sandwich(protein);
             toastMsg = protein.getName();
             resetAddOns();
+            updateBreakdown();
         }
         else if (parent.getSelectedItem() instanceof Bread) {
             this.bread = (Bread) breadSpn.getSelectedItem();
             this.sandwich.setBread(bread);
             toastMsg = bread.getName();
             resetAddOns();
+            updateBreakdown();
         }
         else if (parent.getSelectedItem() instanceof Integer) {
             if (quantity > 1) { // get price of one single item to multiply with new quantity
@@ -280,20 +282,19 @@ public class SandwichesActivity extends AppCompatActivity implements AdapterView
      * Adds sandwich(es) to order
      */
     public void sandwichesAddOrder(View view) {
-        for (int i = 0; i < quantity; i++) {order.addOrderItem(sandwich);}
+        //for (int i = 0; i < quantity; i++) {order.addOrderItem(sandwich);}
         confirmationPopup();
         resetAddOns();
 
-        quantitySpn.setSelection(1);
+        quantitySpn.setSelection(0);
         this.quantity = 1;
-        proteinSpn.setSelection(1);
+        proteinSpn.setSelection(0);
         this.protein = Protein.BEEF;
-        breadSpn.setSelection(1);
+        breadSpn.setSelection(0);
         this.bread = Bread.BAGEL;
-        totalPrice = 0.0;
+        totalPrice = protein.getPrice();
         sandwichesTotal.setText(String.format("$%.2f", totalPrice));
         this.sandwichesBreakdown.setText("Order placed successfully");
     }
-
 
 }
