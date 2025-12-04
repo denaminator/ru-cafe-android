@@ -32,6 +32,14 @@
             android:exported="false">
         </activity>
         <activity
+            android:name=".CurrentOrderActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".PastOrderActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".SandwichesActivity"
             android:exported="false">
         </activity>
