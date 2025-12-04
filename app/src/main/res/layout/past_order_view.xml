@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="432dp"
+    android:layout_height="864dp">
+
+    <LinearLayout
+        android:id="@+id/pastOHeader"
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:background="@color/orders_header"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/pastOTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/bodoni_72_book"
+            android:includeFontPadding="true"
+            android:text="@string/past_orders"
+            android:textColor="@color/white"
+            android:textSize="56sp" />
+
+        <ImageView
+            android:id="@+id/pastOIcon"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="30dp"
+            android:cropToPadding="false"
+            app:srcCompat="@drawable/orders_header_logo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pastOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/pastOHeader">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/orderNumberTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_weight="0.5"
+                android:fontFamily="@font/bodoni_72_book"
+                android:text="@string/order_number"
+                android:textSize="24sp" />
+
+            <Spinner
+                android:id="@+id/orderNumberSpinner"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginEnd="30dp"
+                android:layout_weight="2.5"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pastOrderBreakdown"
+            style="@style/Widget.AppCompat.TextView"
+            android:layout_width="match_parent"
+            android:layout_height="476dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/text_view_border"
+            android:fontFamily="@font/geneva"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:text="@string/order_breakdown"
+            android:textAlignment="viewStart" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pastOrderTotalTxt"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_weight="0.25"
+                android:fontFamily="@font/bodoni_72_book"
+                android:text="@string/total"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/pastOrderTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_weight="0.75"
+                android:background="@drawable/text_view_border"
+                android:fontFamily="@font/geneva"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/default_sum"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:gravity="center|top">
+
+            <Button
+                android:id="@+id/ordersCancel"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/orders_header"
+                android:fontFamily="@font/bodoni_72_book"
+                android:onClick="coffeeAddOrder"
+                android:text="@string/cancel_order"
+                android:textSize="26sp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
