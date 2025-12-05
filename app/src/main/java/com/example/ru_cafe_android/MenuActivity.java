@@ -21,6 +21,7 @@ import java.util.ArrayList;
  */
 public class MenuActivity extends AppCompatActivity {
     private Order order;
+    private OrderManager orderManager;
     private ArrayList<Order> orderList;
 
     /*Base functions*/
@@ -33,6 +34,8 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.menu_activity);
+        orderManager = OrderManager.getInstance();
+        if (orderManager.getCurrentOrder() == null) orderManager.setCurrentOrder(new Order());
     }
 
     /**

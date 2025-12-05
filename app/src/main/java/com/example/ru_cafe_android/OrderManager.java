@@ -35,7 +35,7 @@ public final class OrderManager {
      * Retrieves the current global order
      * @return Global order object
      */
-    public Order getCurrrentOrder() { return this.currentOrder; }
+    public Order getCurrentOrder() { return this.currentOrder; }
 
 
 
