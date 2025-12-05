@@ -132,7 +132,10 @@ public class Sandwich extends MenuItem {
     @Override
     public String toString() {
         String sandwich = this.getProtein().getName();
-        sandwich += " Sandwich " + "[" + this.getBread().getName() + "] " + this.getAddOns().toString();
+        sandwich += " Sandwich " + "[";
+        if (this.bread != null) sandwich += this.getBread().getName() + "] ";
+        else sandwich += "] ";
+        if (this.addOns != null) sandwich += this.getAddOns().toString();
         return sandwich;
     }
 }

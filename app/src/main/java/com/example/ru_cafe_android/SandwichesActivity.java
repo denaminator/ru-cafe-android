@@ -39,6 +39,7 @@ public class SandwichesActivity extends AppCompatActivity implements AdapterView
     private Bread bread;
     private int quantity;
     private double totalPrice;
+    private OrderManager orderManager;
 
     /**
      * Sets up base elements for sandwiches page
@@ -65,6 +66,7 @@ public class SandwichesActivity extends AppCompatActivity implements AdapterView
         onionCBListener();
         cheeseCBListener();
 
+        orderManager = OrderManager.getInstance();
     }
 
 
@@ -106,21 +108,23 @@ public class SandwichesActivity extends AppCompatActivity implements AdapterView
      */
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String toastMsg = "";
+        updateBreakdown();
         if (parent.getSelectedItem() instanceof Protein) {
             this.protein = (Protein) proteinSpn.getSelectedItem();
             this.totalPrice = protein.getPrice();
             this.sandwichesTotal.setText(String.format("%.2f", totalPrice));
-            this.sandwich = new Sandwich(protein);
-            toastMsg = protein.getName();
-            resetAddOns();
+            this.sandwich = new Sandwich(this.protein);
+            this.sandwich.setBread(bread);
+            toastMsg = this.protein.getName();
             updateBreakdown();
+            resetAddOns();
         }
         else if (parent.getSelectedItem() instanceof Bread) {
             this.bread = (Bread) breadSpn.getSelectedItem();
-            this.sandwich.setBread(bread);
+            if (this.sandwich != null) this.sandwich.setBread(bread);
             toastMsg = bread.getName();
-            resetAddOns();
             updateBreakdown();
+            resetAddOns();
         }
         else if (parent.getSelectedItem() instanceof Integer) {
             if (quantity > 1) { // get price of one single item to multiply with new quantity
@@ -128,7 +132,7 @@ public class SandwichesActivity extends AppCompatActivity implements AdapterView
                 adds /= this.quantity;
                 totalPrice = this.protein.getPrice() + adds;
             }
-            quantity = (int) quantitySpn.getSelectedItem();
+            this.quantity = (int) quantitySpn.getSelectedItem();
             if (quantity > 1) totalPrice *= quantity;
             sandwichesTotal.setText(String.format("$%.2f", totalPrice));
             toastMsg = quantity + " order(s)";
@@ -137,12 +141,10 @@ public class SandwichesActivity extends AppCompatActivity implements AdapterView
         Toast.makeText(this, toastMsg + " selected", Toast.LENGTH_SHORT).show();;
     }
 
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {}
 
     /* Checkbox methods */
-
     /**
      * Resets add-on checkboxes
      */
@@ -282,17 +284,19 @@ public class SandwichesActivity extends AppCompatActivity implements AdapterView
      * Adds sandwich(es) to order
      */
     public void sandwichesAddOrder(View view) {
-        //for (int i = 0; i < quantity; i++) {order.addOrderItem(sandwich);}
+        Toast.makeText(SandwichesActivity.this, this.sandwich.toString() + " added",
+                Toast.LENGTH_SHORT).show();
+        for (int i = 0; i < quantity; i++) {orderManager.getCurrentOrder().addOrderItem(sandwich);}
         confirmationPopup();
-        resetAddOns();
-
+        this.sandwich = null;
         quantitySpn.setSelection(0);
         this.quantity = 1;
         proteinSpn.setSelection(0);
         this.protein = Protein.BEEF;
         breadSpn.setSelection(0);
         this.bread = Bread.BAGEL;
-        totalPrice = protein.getPrice();
+        this.sandwich = new Sandwich(protein);
+        sandwich.setBread(bread);
         sandwichesTotal.setText(String.format("$%.2f", totalPrice));
         this.sandwichesBreakdown.setText("Order placed successfully");
     }
