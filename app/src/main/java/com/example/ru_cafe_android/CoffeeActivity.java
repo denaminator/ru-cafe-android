@@ -36,6 +36,7 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
     private Coffee coffee;
     private int quantity;
     private double totalPrice;
+    private OrderManager orderManager;
 
     /*Base functions*/
     /**
@@ -59,6 +60,8 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
         this.vanilla = (CheckBox) findViewById(R.id.vanilla);
         this.caramel = (CheckBox) findViewById(R.id.caramel);
         this.whippedCream = (CheckBox) findViewById(R.id.whippedCream);
+
+        orderManager = OrderManager.getInstance();
     }
 
     /**
@@ -248,14 +251,14 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
             @Override
             public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    totalPrice += (AddIns.VANILLA.getPrice() * quantity);
-                    coffee.addAddIn(AddIns.VANILLA);
-                    Toast.makeText(CoffeeActivity.this, AddIns.VANILLA.getName() + " added", Toast.LENGTH_SHORT).show();
+                    totalPrice += (AddIns.CREAM.getPrice() * quantity);
+                    coffee.addAddIn(AddIns.CREAM);
+                    Toast.makeText(CoffeeActivity.this, AddIns.CREAM.getName() + " added", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    totalPrice -= (AddIns.VANILLA.getPrice() * quantity);
-                    coffee.removeAddIn(AddIns.VANILLA);
-                    Toast.makeText(CoffeeActivity.this, AddIns.VANILLA.getName() + " removed", Toast.LENGTH_SHORT).show();
+                    totalPrice -= (AddIns.CREAM.getPrice() * quantity);
+                    coffee.removeAddIn(AddIns.CREAM);
+                    Toast.makeText(CoffeeActivity.this, AddIns.CREAM.getName() + " removed", Toast.LENGTH_SHORT).show();
                 }
                 totalPriceBox.setText(String.format("$%.2f", totalPrice));
                 updateBreakdown();
@@ -286,15 +289,13 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void coffeeAddOrder(View view) {
-        for (int i = 0; i < quantity; i++) {order.addOrderItem(coffee);}
+        for (int i = 0; i < quantity; i++) {orderManager.getCurrentOrder().addOrderItem(coffee);}
         confirmationPopup();
-
-        resetAddIns();
-        cupSizeSpn.setSelection(1);
+        cupSizeSpn.setSelection(0);
         this.size = CupSize.SHORT;
-        quantitySpn.setSelection(1);
+        quantitySpn.setSelection(0);
         this.quantity = 1;
-        totalPrice = 0.00;
+        totalPrice = this.size.getPrice();
         totalPriceBox.setText(String.format("$%.2f", totalPrice));
 
         orderBreakdown.setText("Order added successfully");
