@@ -33,13 +33,13 @@ public class DonutsActivity extends AppCompatActivity implements AdapterView.OnI
     private TextView donutsTotal;
     private ImageView donutsImage;
     private Button donutsAddOrder;
-    private Order order;
     private int quantity;
     private double totalPrice;
     private Donut donut;
     private ArrayList<Donut> allDonuts;
     private RecyclerView.Adapter donutsAdapter;
     private int selectedPos = RecyclerView.NO_POSITION;
+    private OrderManager orderManager;
 
     /**
      * Sets up base elements for donuts page
@@ -55,6 +55,7 @@ public class DonutsActivity extends AppCompatActivity implements AdapterView.OnI
         this.quantitySpn = (Spinner) findViewById(R.id.donutsQuantitySpinner);
         this.donutsTotal = (TextView) findViewById(R.id.donutsTotal);
         this.donutsImage = (ImageView) findViewById(R.id.donutsImage);
+        orderManager = OrderManager.getInstance();
 
     }
 
@@ -148,26 +149,32 @@ public class DonutsActivity extends AppCompatActivity implements AdapterView.OnI
             donutsTotal.setText(String.format("$%.2f", totalPrice));
             toastMsg = quantity + " order(s)";
         }
-        Toast.makeText(this, toastMsg + " selected", Toast.LENGTH_SHORT).show();;
+        Toast.makeText(this, toastMsg + " selected", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {}
 
     /**
-     * Order confirmation popup
+     * Popup message (confirmation or null error)
+     * @param message message for body of popup
+     * @param title title of popup
      */
-    public void confirmationPopup() {
+    public void popupMsg(String message, String title) {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage("Order added successfully!").setTitle("Order Success");
+        alert.setMessage(message).setTitle(title);
         alert.setNegativeButton("OK", null);
         AlertDialog dialog = alert.create();
         dialog.show();
     }
 
     public void donutsAddOrder(View view) {
-        //for (int i = 0; i < quantity; i++) { order.addOrderItem(donut); }
-        confirmationPopup();
+        if (donut == null) {
+            popupMsg("No donut selected!", "WARNING");
+            return;
+        }
+        for (int i = 0; i < quantity; i++) { orderManager.getCurrentOrder().addOrderItem(donut); }
+        popupMsg("Order added successfully!", "Order Success");
         resetDonuts();
     }
 
