@@ -24,6 +24,23 @@ public class Order {
     }
 
     /**
+     * Parametrized constructor for deep copy creation
+     * @param orderNumber orderNumber of current Order instance
+     */
+    private Order(int orderNumber) {this.orderNumber = orderNumber;}
+
+    /**
+     * Makes a deep copy of the order
+     * @return Order with same information, different memory addressing locations
+     */
+    public Order deepCopy() {
+        Order dupe = new Order(this.orderNumber);
+        dupe.orderItems = new ArrayList<>();
+        for (MenuItem item: this.orderItems) {dupe.orderItems.add(item);}
+        return dupe;
+    }
+
+    /**
      * Gets generated order number
      * @return int order number
      */
