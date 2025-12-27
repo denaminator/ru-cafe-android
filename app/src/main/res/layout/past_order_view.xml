@@ -130,7 +130,7 @@
                 android:layout_marginTop="8dp"
                 android:backgroundTint="@color/orders_header"
                 android:fontFamily="@font/bodoni_72_book"
-                android:onClick="coffeeAddOrder"
+                android:onClick="cancelPastOrder"
                 android:text="@string/cancel_order"
                 android:textSize="26sp" />
         </LinearLayout>
