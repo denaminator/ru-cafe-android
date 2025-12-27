@@ -127,7 +127,8 @@ public class CurrentOrderActivity extends AppCompatActivity {
             return;
         }
         confirmationPopup();
-        orderListManager.getOrderList().add(this.order);
+        Order dupe = this.order.deepCopy();
+        orderListManager.getOrderList().add(dupe);
         order.getOrderItems().clear();
         ArrayAdapter<?> adapter = new ArrayAdapter<>(
                 this,
