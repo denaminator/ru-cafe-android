@@ -13,7 +13,7 @@
         android:background="@color/donuts_header"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="30dp"
+        android:paddingTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,21 +23,20 @@
             android:id="@+id/donutText"
             android:layout_width="133dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
             android:layout_weight="1"
             android:fontFamily="@font/bodoni_72_book"
             android:text="@string/donuts_header"
-            android:textAlignment="textStart"
+            android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textSize="72sp" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="50dp"
+            android:layout_width="30dp"
             android:layout_height="86dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginStart="30dp"
             android:layout_weight="1"
-            android:scaleType="fitEnd"
+            android:scaleType="fitStart"
             app:srcCompat="@drawable/donut_header_logo" />
     </LinearLayout>
 

@@ -57,7 +57,7 @@
 
         <Button
             android:id="@+id/donutsButton"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
@@ -83,7 +83,7 @@
 
         <Button
             android:id="@+id/coffeeButton"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
@@ -109,7 +109,7 @@
 
         <Button
             android:id="@+id/sandwichesButton"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
@@ -135,7 +135,7 @@
 
         <Button
             android:id="@+id/ordersButton"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/white"

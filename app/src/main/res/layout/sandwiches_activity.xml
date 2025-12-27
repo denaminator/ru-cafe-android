@@ -29,7 +29,7 @@
             android:fontFamily="@font/bodoni_72_book"
             android:includeFontPadding="false"
             android:text="@string/sandwiches_header"
-            android:textAlignment="textStart"
+            android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textSize="68sp" />
 
@@ -37,7 +37,9 @@
             android:id="@+id/imageView3"
             android:layout_width="7dp"
             android:layout_height="73dp"
+            android:layout_marginStart="30dp"
             android:layout_weight="1"
+            android:scaleType="fitStart"
             app:srcCompat="@drawable/sandwiches_header_logo" />
     </LinearLayout>
 
