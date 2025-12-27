@@ -288,7 +288,7 @@ public class SandwichesActivity extends AppCompatActivity implements AdapterView
                 Toast.LENGTH_SHORT).show();
         for (int i = 0; i < quantity; i++) {orderManager.getCurrentOrder().addOrderItem(sandwich);}
         confirmationPopup();
-        this.sandwich = null;
+
         quantitySpn.setSelection(0);
         this.quantity = 1;
         proteinSpn.setSelection(0);
@@ -297,8 +297,10 @@ public class SandwichesActivity extends AppCompatActivity implements AdapterView
         this.bread = Bread.BAGEL;
         this.sandwich = new Sandwich(protein);
         sandwich.setBread(bread);
+
         sandwichesTotal.setText(String.format("$%.2f", totalPrice));
         this.sandwichesBreakdown.setText("Order placed successfully");
+        resetAddOns();
     }
 
 }

@@ -289,15 +289,19 @@ public class CoffeeActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void coffeeAddOrder(View view) {
+        Toast.makeText(CoffeeActivity.this, this.coffee.toString() + " added",
+                Toast.LENGTH_SHORT).show();
         for (int i = 0; i < quantity; i++) {orderManager.getCurrentOrder().addOrderItem(coffee);}
         confirmationPopup();
+
         cupSizeSpn.setSelection(0);
         this.size = CupSize.SHORT;
         quantitySpn.setSelection(0);
         this.quantity = 1;
-        totalPrice = this.size.getPrice();
-        totalPriceBox.setText(String.format("$%.2f", totalPrice));
+        this.coffee = new Coffee(this.size);
 
+        totalPriceBox.setText(String.format("$%.2f", totalPrice));
         orderBreakdown.setText("Order added successfully");
+        resetAddIns();
     }
 }
